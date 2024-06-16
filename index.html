@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Calculadora Binária</title>
+<style>
+  body {
+    background-color: #0d1117;
+    color: #c9d1d9;
+    font-family: Arial, sans-serif;
+  }
+  .calculator {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #c9d1d9;
+    border-radius: 5px;
+    background-color: #161b22;
+  }
+  input, button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+  }
+  button {
+    background-color: #238636;
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+
+<div class="calculator">
+  <h2>Calculadora Binária</h2>
+  <input type="text" id="bin1" placeholder="Primeiro número binário">
+  <input type="text" id="bin2" placeholder="Segundo número binário">
+  <button onclick="calcular('add')">Adicionar</button>
+  <button onclick="calcular('subtract')">Subtrair</button>
+  <button onclick="calcular('multiply')">Multiplicar</button>
+  <button onclick="calcular('divide')">Dividir</button>
+  <h3>Resultado: <span id="resultado"></span></h3>
+</div>
+
+<script>
+  function calcular(operacao) {
+    var bin1 = document.getElementById('bin1').value;
+    var bin2 = document.getElementById('bin2').value;
+    var num1 = parseInt(bin1, 2);
+    var num2 = parseInt(bin2, 2);
+    var resultado;
+    if (operacao === 'add') {
+      resultado = num1 + num2;
+    } else if (operacao === 'subtract') {
+      resultado = num1 - num2;
+    } else if (operacao === 'multiply') {
+      resultado = num1 * num2;
+    } else if (operacao === 'divide') {
+      resultado = Math.floor(num1 / num2);
+    }
+    document.getElementById('resultado').innerText = resultado.toString(2);
+  }
+</script>
+
+</body>
+</html>
